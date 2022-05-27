@@ -1,0 +1,12 @@
+@use '../palette';
+
+.map__toggle-mode {
+    .MuiSwitch-switchBase + .MuiSwitch-track {
+        background-color: palette.$light-primary;
+        opacity: 1;
+
+        .theme-dark & {
+            background-color: palette.$dark-primary;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+import '../styles/components/ToggleMode.scss';
+import Switch from '@mui/material/Switch'
+
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleMode } from '../redux/reducers/app';
+
+
+/*
+ * "start" point for components
+ */
+export default function ToggleMode() {
+
+    //let userTheme = useSelector(state => state.app.theme);
+    let dispatch = useDispatch();
+
+    return (
+        <Switch className="map__toggle-mode" onChange={() => dispatch(toggleMode())}></Switch>
+    );
+}
