@@ -1,9 +1,10 @@
+import os
 from databases import Database
 import asyncio
 
-
 async def init_db():
-    db = Database("sqlite:///test.db")
+    print(os.environ.get("API_DB_URL"))
+    db = Database(os.environ.get("API_DB_URL"))
     await db.connect()
 
 

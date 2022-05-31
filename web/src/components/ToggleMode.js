@@ -1,7 +1,7 @@
 import '../styles/components/ToggleMode.scss';
 import Switch from '@mui/material/Switch'
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { toggleMode } from '../redux/reducers/app';
 
 

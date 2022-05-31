@@ -8,6 +8,8 @@ fastapi = "*"
 uvicorn = "*"
 databases = {extras = ["sqlite"], version = "*"}
 ipython = "*"
+sqlalchemy = "*"
+pydantic = "*"
 
 [dev-packages]
 
