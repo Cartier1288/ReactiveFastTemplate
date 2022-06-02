@@ -1,0 +1,18 @@
+{
+  "app.err404": {
+    "col": 12,
+    "defaultMessage": "404 Page Not Found",
+    "end": 275,
+    "file": "src/views/NOTFOUND.js",
+    "line": 6,
+    "start": 159
+  },
+  "app.home.primary": {
+    "col": 16,
+    "defaultMessage": "Hello, React!",
+    "end": 823,
+    "file": "src/views/Home.js",
+    "line": 24,
+    "start": 712
+  }
+}

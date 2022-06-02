@@ -5,5 +5,7 @@ export const store = configureStore({
     reducer: {
         app: appReducer
     },
-
+    middleware: (getDefaultMiddleware) => {
+        return getDefaultMiddleware();
+    },
 })
