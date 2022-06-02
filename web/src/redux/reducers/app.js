@@ -14,17 +14,64 @@ const initialState = {
     }
 };
 
+function condense(obj) {
+    console.log(JSON.stringify(obj, null, 3))
+    const condensed = {};
+    for(const [key, value] of Object.entries(obj)) {
+        if(typeof(value) == "string") {
+            condensed[key] = value;
+        }
+        else if(typeof(value) == "object") {
+            for(const [vkey, vvalue] of Object.entries(condense(value))) {
+                condensed[key + "." + vkey] = vvalue;
+            }
+        }
+    }
+    console.log(JSON.stringify(condensed, null, 3))
+    return condensed;
+}
 
 export const setLocale = createAsyncThunk(
     'app/setLocale',
     async (locale, { getState }) => {
-        const messages = await import(`../../intl/lang/${locale}.json`);
+        let messages = await import(`../../intl/lang/${locale}.json`);
+
+        let formMessages;
 
         // use pre-existing translations for yup errors
         // setLocale only takes effect if the schema is recreated
         //   so no queued side-effects
-        if(locale !== "en") yupSetLocale(yupLang[locale]);
-        else yupSetLocale(yupEnLocale)
+        if(locale !== "en") {
+            formMessages = yupLang[locale];
+        }
+        else {
+            formMessages = yupEnLocale;
+        }
+
+        console.log(JSON.stringify(
+            condense({ 
+                form: { 
+                    errors: {
+                        ...formMessages 
+                    }
+                } 
+            }), null, 4
+        ));
+
+        // this is for convenience, should eventually
+        // be a part of the formatjs compile pipeline
+        messages = {
+            ...messages,
+            ...condense({ 
+                form: { 
+                    errors: {
+                        ...formMessages 
+                    }
+                } 
+            })
+        }
+    
+        console.log(JSON.stringify(messages, null, 4))
 
         return { locale, messages };
     }

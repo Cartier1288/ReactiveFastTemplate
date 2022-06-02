@@ -2,6 +2,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useSelector } from 'react-redux';
 import * as yup from 'yup'
+import { FormattedMessage } from 'react-intl';
 
 import { FormControl, Grid, Button, OutlinedInput, InputLabel } from '@mui/material';
 
@@ -21,10 +22,13 @@ export default function IntForm(props) {
 
     useSelector(state => state.app.intl);
 
-    console.log("here");
+    if(errors.email) {
+        console.log(JSON.stringify(Object.keys(errors.email), null, 4));
+        console.log(JSON.stringify(errors.email?.type, null, 4));
+    }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} style={{ width: "100%", maxWidth: "600px", marginLeft: "200px", backgroundColor: "#F0F0F0", padding: "10px" }}>
+        <form onSubmit={handleSubmit(onSubmit)} style={{ width: "100%", maxWidth: "600px", marginLeft: "200px", padding: "10px" }}>
             <Grid container rowSpacing={1} columnSpacing={1}>
                 <Grid item xs={12}>
                     <FormControl fullWidth>
@@ -34,7 +38,7 @@ export default function IntForm(props) {
                             {...register("email")}
                         />
                     </FormControl>
-                    <p>{ errors.email?.message }</p>
+                    <p>{ errors.email && <FormattedMessage id={`form.errors.string.${errors.email?.type}`} /> }</p>
                 </Grid>
                 <Grid item xs={12}>
                     <FormControl fullWidth>
