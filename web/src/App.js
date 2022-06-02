@@ -12,36 +12,42 @@ import Home from './views/Home.js';
 import NOTFOUND from './views/NOTFOUND.js';
 import Navbar from './components/Navbar.js';
 
+function IntlApp() {
+  let intl = useSelector(state => state.app.intl);
+
+  return (
+    <IntlProvider
+      locale={intl.locale} 
+      defaultLocale="en"
+      messages={intl.messages}
+    >
+      <Grid container spacing={0}>
+        <Grid item xs={0} md={2}>
+          <Navbar />
+        </Grid>
+        <Grid item xs={12} md={10}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<NOTFOUND />} /> {/* Default route if no matching route */}
+          </Routes>
+        </Grid>
+      </Grid>
+    </IntlProvider>
+  );
+}
+
 /*
  * "start" point for components
  */
 function App() {
   
   let userTheme = useSelector(state => state.app.theme);
-  let intl = useSelector(state => state.app.intl);
   
   return (
-    <IntlProvider
-      locale={intl.locale} 
-      key={intl.locale}
-      defaultLocale="en"
-      messages={intl.messages}
-    >
-      <ThemeProvider theme={(userTheme.mode === 'light') ? theme.light : theme.dark}>
-        <CssBaseline injectFirst />
-        <Grid container spacing={0}>
-          <Grid item xs={0} md={2}>
-            <Navbar />
-          </Grid>
-          <Grid item xs={12} md={10}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="*" element={<NOTFOUND />} /> {/* Default route if no matching route */}
-            </Routes>
-          </Grid>
-        </Grid>
-      </ThemeProvider>
-    </IntlProvider>
+    <ThemeProvider theme={(userTheme.mode === 'light') ? theme.light : theme.dark}>
+      <CssBaseline injectFirst />
+      <IntlApp />
+    </ThemeProvider>
   );
 }
 

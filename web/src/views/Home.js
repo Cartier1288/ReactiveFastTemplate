@@ -6,6 +6,7 @@ import { FormattedMessage as $t } from 'react-intl';
 
 import ToggleMode from '../components/ToggleMode'
 import Counter from '../components/Counter'
+import IntForm from '../components/IntForm'
 
 
 export default function Home(props) {
@@ -32,6 +33,9 @@ export default function Home(props) {
             </Box>
             <Box>
               <Counter />
+            </Box>
+            <Box>
+              <IntForm />
             </Box>
           </Box>
         </Box>

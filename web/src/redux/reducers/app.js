@@ -1,5 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import en_messages from '../../intl/lang/en.json';
+import { setLocale as yupSetLocale } from 'yup';
+import * as yupLang from 'yup-locales';
+import yupEnLocale from "yup/lib/locale";
 
 const initialState = {
     theme: {
@@ -16,6 +19,13 @@ export const setLocale = createAsyncThunk(
     'app/setLocale',
     async (locale, { getState }) => {
         const messages = await import(`../../intl/lang/${locale}.json`);
+
+        // use pre-existing translations for yup errors
+        // setLocale only takes effect if the schema is recreated
+        //   so no queued side-effects
+        if(locale !== "en") yupSetLocale(yupLang[locale]);
+        else yupSetLocale(yupEnLocale)
+
         return { locale, messages };
     }
 );

@@ -25,8 +25,6 @@ class Counter extends Component {
                 baseURL: process.env.REACT_APP_URL_API,
                 url: 'count/1',
             }).then((res) => {
-                console.log("received: ");
-                console.log(JSON.stringify(res, null, 4));
                 this.setState({
                     count: res.data.count,
                     disableIncrement: false
@@ -52,8 +50,6 @@ class Counter extends Component {
             baseURL: process.env.REACT_APP_URL_API,
             url: 'count/1'
         }).then((res) => {
-            console.log("received: ");
-            console.log(JSON.stringify(res, null, 4));
             this.setState({
                 count: res.data.count,
                 disableIncrement: false
