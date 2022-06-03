@@ -34,7 +34,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "extract": "formatjs extract \"./src/**/*.{js,jsx}\" --out-file ./src/intl/messages.json --extract-source-location true --additional-component-names '$t'",
-    "compile": "formatjs compile \"./src/intl/messages.json\" --out-file ./src/intl/locale.json"
+    "compile": "formatjs compile \"./src/intl/messages.json\" --out-file ./src/intl/locale.json",
+    "compile-int": "./compileI18N.sh"
   },
   "eslintConfig": {
     "extends": [

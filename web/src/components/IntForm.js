@@ -1,4 +1,5 @@
-import { useForm, Controller } from 'react-hook-form';
+import { useRef } from 'react';
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useSelector } from 'react-redux';
 import * as yup from 'yup'
@@ -15,12 +16,24 @@ const schema = () => yup.object({
 }).required();
 
 export default function IntForm(props) {
-    const { register, handleSubmit, control, formState: {errors} } = useForm({
+    const { register, trigger, getValues, handleSubmit, control, formState: {errors} } = useForm({
         resolver: yupResolver(schema())
     });
     const onSubmit = data => console.log(JSON.stringify(data, null, 4));
 
-    useSelector(state => state.app.intl);
+    /* 
+     * logic to trigger form update for first render after locale 
+     * has changed.
+     */
+    const intl = useSelector(state => state.app.intl);
+    const localeRef = useRef();
+    if(localeRef.current && intl.locale != localeRef.current) {
+        localeRef.current = intl.locale;
+        trigger();
+    }
+    else { // mount since ref does not have value, skip validation
+        localeRef.current = intl.locale;
+    }
 
     if(errors.email) {
         console.log(JSON.stringify(Object.keys(errors.email), null, 4));
@@ -38,7 +51,14 @@ export default function IntForm(props) {
                             {...register("email")}
                         />
                     </FormControl>
-                    <p>{ errors.email && <FormattedMessage id={`form.errors.string.${errors.email?.type}`} /> }</p>
+                    <p>{ errors.email?.message }</p>
+                    {/* alternative error approach:
+                    <p>{ errors.email && 
+                            <FormattedMessage 
+                                id={`form.errors.string.${errors.email?.type}`} 
+                                values={{values: getValues('email'), path: "email"}}
+                            /> }
+                    </p>*/}
                 </Grid>
                 <Grid item xs={12}>
                     <FormControl fullWidth>

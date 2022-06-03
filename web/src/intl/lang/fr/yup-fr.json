@@ -1,0 +1,77 @@
+{
+    "form.errors.mixed.default": {
+        "defaultMessage": "{path} est invalide."
+    },
+    "form.errors.mixed.required": {
+        "defaultMessage": "{path} est un champ obligatoire"
+    },
+    "form.errors.mixed.oneOf": {
+        "defaultMessage": "{path} doit être l'une des valeurs suivantes : {values}"
+    },
+    "form.errors.mixed.notOneOf": {
+        "defaultMessage": "{path} ne doit pas être l'une des valeurs suivantes : {values}"
+    },
+    "form.errors.string.length": {
+        "defaultMessage": "{path} doit être exactement {length} caractères"
+    },
+    "form.errors.string.min": {
+        "defaultMessage": "{path} doit être au moins {min} caractères"
+    },
+    "form.errors.string.max": {
+        "defaultMessage": "{path} doit être au plus {max} caractères"
+    },
+    "form.errors.string.matches": {
+        "defaultMessage": "{path} doit correspondre à ce qui suit : \"{regex}\""
+    },
+    "form.errors.string.email": {
+        "defaultMessage": "{path} doit être un email valide"
+    },
+    "form.errors.string.url": {
+        "defaultMessage": "{path} doit être une URL valide"
+    },
+    "form.errors.string.trim": {
+        "defaultMessage": "{path} doit être une chaîne garnie"
+    },
+    "form.errors.string.lowercase": {
+        "defaultMessage": "{path} doit être une chaîne en minuscule"
+    },
+    "form.errors.string.uppercase": {
+        "defaultMessage": "{path} doit être une chaîne de majuscules"
+    },
+    "form.errors.number.min": {
+        "defaultMessage": "{path} doit être supérieure ou égale à {min}"
+    },
+    "form.errors.number.max": {
+        "defaultMessage": "{path} doit être inférieur ou égal à {max}"
+    },
+    "form.errors.number.lessThan": {
+        "defaultMessage": "{path} doit être inférieure à {less}"
+    },
+    "form.errors.number.moreThan": {
+        "defaultMessage": "{path} doit être supérieure à {more}"
+    },
+    "form.errors.number.positive": {
+        "defaultMessage": "{path} doit être un nombre positif"
+    },
+    "form.errors.number.negative": {
+        "defaultMessage": "{path} doit être un nombre négatif"
+    },
+    "form.errors.number.integer": {
+        "defaultMessage": "{path} doit être un entier"
+    },
+    "form.errors.date.min": {
+        "defaultMessage": "{path} champ doit être au plus tard {min}"
+    },
+    "form.errors.date.max": {
+        "defaultMessage": "champ {path} doit être au plus tôt {max}"
+    },
+    "form.errors.object.noUnknown": {
+        "defaultMessage": "champ {path} ne peut pas avoir des clés non spécifiées dans la forme de l'objet"
+    },
+    "form.errors.array.min": {
+        "defaultMessage": "champ {path} doit avoir au moins {min} articles"
+    },
+    "form.errors.array.max": {
+        "defaultMessage": "{path} champ doit avoir inférieur ou égal à {max} articles"
+    }
+}
