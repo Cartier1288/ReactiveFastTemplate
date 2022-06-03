@@ -1,15 +1,35 @@
-# Template Includes
+# Template for React front-end + FastAPI back-end
 
+This template is meant to act as a boilerplate for larger apps that require React
+and/or FastAPI.
+
+It includes some very basic 'examples' of most of its features, and some out-of-the-box
+functionality like changing theme and locale. 
+
+
+## Template libraries include
+
+Front end:
 1. React (instantiated from create-react-app)
-2. Sass support
-3. [Jest unit testing](https://create-react-app.dev/docs/running-tests/)
-4. 
+2. Sass
+3. Material UI (with overridable styling from Sass)
+4. Redux + Redux Utils + Redux Thunk
+5. React Hook Forms + Yup & Yup-locales
+6. React-intl + Extract & Compile scripts
+7. React-router
+8. [Jest unit testing](https://create-react-app.dev/docs/running-tests/)
+
+Back end:
+1. FastAPI
+2. Pydantic
+3. SQLAlchemy + Databases
+4. SQLite
 
 
 
-# Dev Notes
 
-* (Generally) always install packages with the `-E` parameter since it saves the exact version
+
+# Extra Dev Notes (from Create-React-App)
 
 
 # Getting Started with Create React App
