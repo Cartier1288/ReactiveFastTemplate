@@ -26,6 +26,33 @@ Back end:
 4. SQLite
 
 
+## Installation
+
+from inside `/web/` run `npm install` to install the required web libraries.
+
+from inside `/api/` run `pipenv install` to install the required API libraries.:w
+
+
+
+## Scripts
+
+run: `npm start` to start the development web server.
+
+run: `uvicorn main:app --reload` to start FastAPI.
+
+
+### Internationalization (from `/web/` folder):
+
+run: `npm run extract` to extract messages from source files into a messages.json file.
+These files can then be placed in src/intl/lang/${LOCALE} folders and translated.
+
+run: `npm run compile-int` to compile each src/intl/lang/${LOCALE} folder into a 
+corresponding locale file readable by **react-intl**.
+
+
+### SQLite DB (from `/api/`):
+
+run: `python db/createdb.py` to create the example test.db file for SQLite usage.
 
 
 
