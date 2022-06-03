@@ -44,9 +44,9 @@ run: `uvicorn main:app --reload` to start FastAPI.
 ### Internationalization (from `/web/` folder):
 
 run: `npm run extract` to extract messages from source files into a messages.json file.
-These files can then be placed in src/intl/lang/${LOCALE} folders and translated.
+These files can then be placed in `src/intl/lang/${LOCALE}` folders and translated.
 
-run: `npm run compile-int` to compile each src/intl/lang/${LOCALE} folder into a 
+run: `npm run compile-int` to compile each `src/intl/lang/${LOCALE}` folder into a 
 corresponding locale file readable by **react-intl**.
 
 
