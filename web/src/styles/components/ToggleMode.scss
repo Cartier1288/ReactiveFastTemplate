@@ -1,6 +1,6 @@
 @use '../palette';
 
-.map__toggle-mode {
+.toggle-mode {
     .MuiSwitch-switchBase + .MuiSwitch-track {
         background-color: palette.$light-primary;
         opacity: 1;

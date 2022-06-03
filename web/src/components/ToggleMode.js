@@ -14,6 +14,6 @@ export default function ToggleMode() {
     let dispatch = useDispatch();
 
     return (
-        <Switch className="map__toggle-mode" onChange={() => dispatch(toggleMode())}></Switch>
+        <Switch className="toggle-mode" onChange={() => dispatch(toggleMode())}></Switch>
     );
 }

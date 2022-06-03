@@ -7,7 +7,7 @@ import SelectLanguage from './SelectLanguage';
 
 export default function Navbar(props) {
     return (
-        <div className="map__navbar">
+        <div className="navbar">
             <ul>
                 <li>
                     <Link to="/">Home</Link>
